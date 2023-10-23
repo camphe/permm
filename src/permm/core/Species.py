@@ -51,7 +51,7 @@ class Species(object):
         if isinstance(spc_dict, str):
             if not ':' in spc_dict:
                 spc_dict = spc_dict.strip() + ':'
-            defs = yaml.load(spc_dict)
+            defs = yaml.safe_load(spc_dict)
             
             if len(defs) > 1:
                 raise ValueError('Species class can only initialize one object at a time')
