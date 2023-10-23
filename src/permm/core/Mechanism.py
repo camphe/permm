@@ -1,4 +1,4 @@
-from __future__ import print_function
+_from __future__ import print_function
 import operator
 import yaml
 import re
@@ -68,7 +68,7 @@ class Mechanism(object):
         from io import StringIO
         if verbose > 0:
             print(spctxt)
-        spcdict = yaml.load(StringIO(spctxt))
+        spcdict = yaml.safe_load(StringIO(spctxt))
         return cls(spcdict)
 
     @classmethod
@@ -95,7 +95,7 @@ class Mechanism(object):
         from io import StringIO
         if verbose > 0:
             print(rxntxt)
-        rxndict = yaml.load(StringIO(rxntxt))
+        rxndict = yaml.safe_load(StringIO(rxntxt))
         return cls(rxndict)
         
     def __init__(self, yaml_path):
@@ -115,9 +115,9 @@ class Mechanism(object):
         import os
         if isinstance(yaml_path,str):
             if os.path.exists(yaml_path):
-                yaml_file = yaml.load(open(yaml_path))
+                yaml_file = yaml.safe_load(open(yaml_path))
             else:
-                yaml_file = yaml.load(yaml_path)
+                yaml_file = yaml.safe_load(yaml_path)
         elif isinstance(yaml_path,dict):
             yaml_file = yaml_path
         
