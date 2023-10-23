@@ -25,7 +25,7 @@ def parse_and_run():
     options = parser.parse_args()
     if len(options.pseudonetcdf) > 0:
         pncparser = getparser(has_ofile = False, interactive = True)
-        ifiles, pncoptions = pncparse(has_ofile = False, interactive = True, parser = pncparser, args = args.pseudonetcdf)
+        ifiles, pncoptions = pncparse(has_ofile = False, interactive = True, parser = pncparser, args = options.pseudonetcdf)
     else:
         ifiles = []
         pncoptions = {}
