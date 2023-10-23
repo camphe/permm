@@ -26,7 +26,7 @@ else:
     else:
         import yaml
         from permm.graphing.timeseries import phy_plots, chem_plots, rxn_plots
-        conf = yaml.load(file(args[0]))
+        conf = yaml.safe_load(file(args[0]))
         phy_plots(conf)
         chem_plots(conf)
         rxn_plots(conf)
